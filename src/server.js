@@ -1,13 +1,8 @@
-import taskboardRouter from './resources/taskboard/taskboard.router'
 import usersRouter from './resources/users/users.router'
-import reviewRouter from './resources/review/review.router'
 import emailRouter from './resources/email/email.router'
 import searchRouter from './resources/search/search.router'
-import offerRouter from './resources/offer/offer.router'
 import prefetchRouter from './resources/prefetch/prefetch.router'
-import jobRouter from './resources/job/job.router'
 import notificationRouter from './resources/notification/notification.router'
-import connectionRouter from './resources/connection/connection.router'
 import profileRouter from './resources/profile/profile.router'
 import portfolioRouter from './resources/portfolio/portfolio.router'
 import chatRouter from './resources/chat/chat.router'
@@ -81,33 +76,28 @@ app.use(
 )
 app.use(morgan('dev'))
 
-app.use('/api/v1/taskboard', taskboardRouter)
 app.use('/api/v1/login', signin)
 app.use('/api/v1/signup', signup)
 app.use('/api/v1/user/menu', menuPermission)
 app.use('/api/v1/users', usersRouter)
-app.use('/api/v1/review', reviewRouter)
 app.use('/api/v1/email', emailRouter)
 app.use('/api/v1/search', searchRouter)
-app.use('/api/v1/offer', offerRouter)
 app.use('/api/v1/prefetch', prefetchRouter)
-app.use('/api/v1/connection', connectionRouter)
 app.use('/api/v1/profile', profileRouter)
 app.use('/api/v1/portfolio', portfolioRouter)
 app.use('/api/v1/chat', chatRouter)
-app.use('/api/v1/job', jobRouter)
 app.use('/api/v1/notification', notificationRouter)
 app.use('/api/v1/uploads', uploadsRouter)
 app.use('/api/v1/settings', settingsRouter)
 
-if (env === 'production') {
-  // everyday @11:00 AM (00:00)
-  // cron.schedule('0 11 * * *', completeProfile)
-  // every 5 minutes
-  // cron.schedule('*/5 * * * *', messagePending)
-  // everyday @11:00 AM (00:00)
-  cron.schedule('0 2 * * *', jobsPending)
-}
+// if (env === 'production') {
+//   // everyday @11:00 AM (00:00)
+//   // cron.schedule('0 11 * * *', completeProfile)
+//   // every 5 minutes
+//   // cron.schedule('*/5 * * * *', messagePending)
+//   // everyday @11:00 AM (00:00)
+//   cron.schedule('0 2 * * *', jobsPending)
+// }
 
 app.get('/api/v1/test', (req, res) => {
   console.log(req.ips)
