@@ -12,13 +12,13 @@ const validateRegisterInput = require('../validations/signup')
 // const isEmpty = require('../validations/is-empty')
 
 export const newToken = user => {
-  return jwt.sign({ id: user.id }, secrets.jwt, {
+  return jwt.sign({ id: user.id }, 'karuna-times', {
     expiresIn: secrets.jwtExp
   })
 }
-console.log(secrets.jwt);
+console.log('karuna-times');
 var validateJwt = expressJwt({
-  secret: secrets.jwt
+  secret: 'karuna-times'
 })
 
 /**
@@ -87,7 +87,7 @@ export function isAuthenticated() {
 
 export const verifyToken = token =>
   new Promise((resolve, reject) => {
-    jwt.verify(token, secrets.jwt, (err, payload) => {
+    jwt.verify(token, 'karuna-times', (err, payload) => {
       if (err) return reject(err)
       resolve(payload)
     })
