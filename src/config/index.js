@@ -16,18 +16,18 @@ dotenv.config()
 // })
 
 const env = process.env.NODE_ENV || 'development'
-const s3 = new aws.S3({
-  secretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
-  accessKeyId: process.env.S3_ACCESS_KEY_ID,
-  region: 'us-east-2'
-})
+// const s3 = new aws.S3({
+//   secretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
+//   accessKeyId: process.env.S3_ACCESS_KEY_ID,
+//   region: 'us-east-2'
+// })
 module.exports = {
   env,
   isDev: env === 'development',
   port: process.env.APP_PORT || 5000,
   secrets: {
     jwt: process.env.JWT_SECRET,
-    saltRounds: process.env.SALT_ROUND,
+    saltRounds: process.env.SALT_ROUND || 10,
     jwtExp: process.env.JWT_EXPIRY || '2d'
   },
   hostURL: process.env.HOST_URL || 'http://karunatimes.org:5001/api/v1',
@@ -37,6 +37,6 @@ module.exports = {
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE
   },
-  sendgridKey: process.env.SENDGRID_KEY,
-  s3
+  // sendgridKey: process.env.SENDGRID_KEY,
+  // s3
 }
