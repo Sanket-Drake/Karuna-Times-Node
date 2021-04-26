@@ -4,7 +4,7 @@ import searchRouter from './resources/search/search.router'
 import prefetchRouter from './resources/prefetch/prefetch.router'
 import notificationRouter from './resources/notification/notification.router'
 import profileRouter from './resources/profile/profile.router'
-import portfolioRouter from './resources/portfolio/portfolio.router'
+import hospitalRouter from './resources/hospital/hospital.router'
 import chatRouter from './resources/chat/chat.router'
 import uploadsRouter from './resources/uploads/uploads.router'
 import settingsRouter from './resources/settings/settings.router'
@@ -84,7 +84,7 @@ app.use('/api/v1/email', emailRouter)
 app.use('/api/v1/search', searchRouter)
 app.use('/api/v1/prefetch', prefetchRouter)
 app.use('/api/v1/profile', profileRouter)
-app.use('/api/v1/portfolio', portfolioRouter)
+app.use('/api/v1/hospital', hospitalRouter)
 app.use('/api/v1/chat', chatRouter)
 app.use('/api/v1/notification', notificationRouter)
 app.use('/api/v1/uploads', uploadsRouter)

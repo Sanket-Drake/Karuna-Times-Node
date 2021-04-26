@@ -18,6 +18,28 @@ const isEmpty = require('../../validations/is-empty')
    }
  } 
  */
+
+ export const getHospitals = async (req, res) => {
+  try {
+    const result = await query(`select hospital_list.*, area_list.name as area_name, city_list.name as city_name, state_list.name as state_name from 
+    hospital_list 
+    left join area_list on area_list.id = hospital_list.area_id
+    left join city_list on city_list.id = area_list.city_id
+    left join state_list on state_list.id = city_list.state_id
+    LIMIT ${req.query.limit || 4} 
+    OFFSET ${req.query.offset || 0};`)
+    // where users.id = ${req.user[0].id} order by portfolio_data.timestamp desc
+    if (!isEmpty(result)) {
+      res.status(200).json({ data: result, message: `Data fetched`, status: true })
+    } else {
+      res.status(404).json({ data: [], message: `Data fetched`, status: true })
+    }
+  } catch (e) {
+    console.log(e)
+    return res.status(400).json({ data: e, message: 'fail', status: false })
+  }
+}
+
 export const uploadPortfolio = async (req, res) => {
   const { validationError, isValid } = validatePortfolio(req.body)
   if (!isValid) {
