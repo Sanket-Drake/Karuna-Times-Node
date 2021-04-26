@@ -16,7 +16,7 @@ export const newToken = user => {
     expiresIn: secrets.jwtExp
   })
 }
-
+console.log(secrets.jwt);
 var validateJwt = expressJwt({
   secret: secrets.jwt
 })
