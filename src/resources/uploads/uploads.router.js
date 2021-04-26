@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import { uploadAttachment } from './uploads.controllers'
-import { isAuthenticated } from '../../utils/auth'
+// import { isAuthenticated } from '../../utils/auth'
 import { imageFilter } from '../../utils/helper'
 import compose from 'composable-middleware'
 
@@ -43,6 +43,6 @@ export function imageUploadValidation() {
   )
 }
 
-router.post('/pending-upload/:attachmentname', [isAuthenticated(), imageUploadValidation()], uploadAttachment)
+// router.post('/pending-upload/:attachmentname', [isAuthenticated(), imageUploadValidation()], uploadAttachment)
 
 export default router

@@ -8,7 +8,7 @@ import portfolioRouter from './resources/portfolio/portfolio.router'
 import chatRouter from './resources/chat/chat.router'
 import uploadsRouter from './resources/uploads/uploads.router'
 import settingsRouter from './resources/settings/settings.router'
-import { signup, signin, menuPermission } from './utils/auth'
+// import { signup, signin, menuPermission } from './utils/auth'
 import {
   // completeProfile,
   // messagePending,
@@ -76,9 +76,9 @@ app.use(
 )
 app.use(morgan('dev'))
 
-app.use('/api/v1/login', signin)
-app.use('/api/v1/signup', signup)
-app.use('/api/v1/user/menu', menuPermission)
+// app.use('/api/v1/login', signin)
+// app.use('/api/v1/signup', signup)
+// app.use('/api/v1/user/menu', menuPermission)
 app.use('/api/v1/users', usersRouter)
 app.use('/api/v1/email', emailRouter)
 app.use('/api/v1/search', searchRouter)
