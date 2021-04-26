@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "prebuild": "rimraf dist && mkdir dist && cp .env dist/ ",
     "build": "babel src --out-dir dist",
     "server": "nodemon server.js",
     "dev": "nodemon --exec npm run restart",
